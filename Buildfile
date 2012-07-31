@@ -18,7 +18,7 @@ define "bpms-common" do
   project.group = "com.intalio.bpms.common"
   libs = AXIS2, APACHE_COMMONS[:lang], INTALIO_STATS, JSON_NAGGIT, JSP_API, LOG4J, SERVLET_API, SLF4J, SPRING[:core], SPRING[:webmvc]
   compile.with libs
- package(:jar).include "bin", :as=>'.'
+  package(:jar).include "bin", :as=>'.'
 
 end
 
