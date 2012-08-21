@@ -8,6 +8,7 @@ public class MultiThreadedHttpConnectionManagerFactory {
 	private static long idleconnectionTimeOut = 30 * 1000;
 	private static long idletimeoutinterval = 30 * 1000;
 	private static int maxConnectionPerHost = 5;
+	private static int maxTotalConnections = 400;
 	private static MultiThreadedHttpConnectionManager connectionManager = null;
 	private static Object LOCK = new Object();
 	private static IdleConnectionTimeoutThread idleConnectionTimeoutThread = null;
@@ -23,11 +24,20 @@ public class MultiThreadedHttpConnectionManagerFactory {
 	}
 
 	public static MultiThreadedHttpConnectionManager getInstance() {
+        String maxConnectionPerHostAsString = System.getProperty("maxConnectionPerHost");
+        if (maxConnectionPerHostAsString != null) {
+            maxConnectionPerHost = Integer.parseInt(maxConnectionPerHostAsString);
+        }
+        String maxTotalConnectionsAsString = System.getProperty("maxTotalConnections");
+        if (maxTotalConnectionsAsString != null) {
+            maxTotalConnections = Integer.parseInt(maxTotalConnectionsAsString);
+        }
 		if (connectionManager == null) {
 			synchronized (LOCK) {
 				if (connectionManager == null) {
 					connectionManager = new MultiThreadedHttpConnectionManager();
 					HttpConnectionManagerParams params = new HttpConnectionManagerParams();
+					params.setMaxTotalConnections(maxTotalConnections);
 					params.setDefaultMaxConnectionsPerHost(maxConnectionPerHost);
 					params.setSoTimeout(60 * 1000);
 					connectionManager.setParams(params);
