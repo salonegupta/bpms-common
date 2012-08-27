@@ -39,7 +39,8 @@ public class MultiThreadedHttpConnectionManagerFactory {
 					HttpConnectionManagerParams params = new HttpConnectionManagerParams();
 					params.setMaxTotalConnections(maxTotalConnections);
 					params.setDefaultMaxConnectionsPerHost(maxConnectionPerHost);
-					params.setSoTimeout(60 * 1000);
+					// Setting to 10 minutes
+					params.setSoTimeout(10 * 60 * 1000);
 					connectionManager.setParams(params);
 					idleConnectionTimeoutThread = new IdleConnectionTimeoutThread();
 					idleConnectionTimeoutThread.setConnectionTimeout(idleconnectionTimeOut);
