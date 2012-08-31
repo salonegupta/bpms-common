@@ -16,9 +16,9 @@ VERSION_NUMBER = "1.0.0.0"
 define "bpms-common" do
   project.version = VERSION_NUMBER
   project.group = "com.intalio.bpms.common"
-  libs = AXIS2, APACHE_COMMONS[:lang], INTALIO_STATS, JSON_NAGGIT, JSP_API, LOG4J, SERVLET_API, SLF4J, SPRING[:core], SPRING[:webmvc]
-  compile.with libs
-  package(:jar).include "bin", :as=>'.'
+  libs = AXIS2, APACHE_COMMONS[:lang], APACHE_COMMONS[:httpclient], INTALIO_STATS, JSON_NAGGIT, JSP_API, LOG4J, SERVLET_API, SLF4J, SPRING[:core], SPRING[:webmvc]
+  compile.from('src').with libs
+  package(:jar)
 
 end
 
