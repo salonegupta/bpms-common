@@ -100,7 +100,7 @@ INSTINCT = [
 ]
 
 AXIS2 = [
-  group("axis2-kernel", "axis2-adb", "axis2-xmlbeans", "axis2-json", :under=>"org.apache.axis2", :version=>"1.5.1"),
+  group("axis2-kernel", "axis2-adb", "axis2-xmlbeans", "axis2-json", :under=>"org.apache.axis2", :version=>"1.5.5"),
   BACKPORT,
   NEETHI,
   SUNMAIL
