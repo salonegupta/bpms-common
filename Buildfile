@@ -6,9 +6,12 @@
 #  and conditions stipulated in the agreement/contract under which the
 #  program(s) have been supplied.
 
-#require "repositories.rb"
+require "repositories.rb"
 
-DP_VERSION_NUMBER="1.0.8"
+DP_VERSION_NUMBER="1.0.1"
+
+# We need to download the artifact before we load the same
+artifact("org.intalio.common:dependencies:rb:#{DP_VERSION_NUMBER}").invoke
 
 DEPENDENCIES = "#{ENV['HOME']}/.m2/repository/org/intalio/common/dependencies/#{DP_VERSION_NUMBER}/dependencies-#{DP_VERSION_NUMBER}.rb"
 unless ENV["M2_REPO"] != ''
