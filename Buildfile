@@ -10,7 +10,7 @@ require "repositories.rb"
 
 DP_VERSION_NUMBER="1.0.1"
 
-if ENV['DP_VERSION_NUMBER'] != ''
+if ENV['DP_VERSION_NUMBER']
 DP_VERSION_NUMBER = "#{ENV['DP_VERSION_NUMBER']}"
 end
 
@@ -18,7 +18,7 @@ end
 artifact("org.intalio.common:dependencies:rb:#{DP_VERSION_NUMBER}").invoke
 
 DEPENDENCIES = "#{ENV['HOME']}/.m2/repository/org/intalio/common/dependencies/#{DP_VERSION_NUMBER}/dependencies-#{DP_VERSION_NUMBER}.rb"
-if ENV["M2_REPO"] != ''
+if ENV["M2_REPO"]
 DEPENDENCIES ="#{ENV['M2_REPO']}/org/intalio/common/dependencies/#{DP_VERSION_NUMBER}/dependencies-#{DP_VERSION_NUMBER}.rb"
 end
 load DEPENDENCIES
