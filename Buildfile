@@ -18,7 +18,7 @@ define "bpms-common" do
   project.group = "com.intalio.bpms.common"
   compile.options.source = "1.5"
   compile.options.target = "1.5"
-  libs = AXIS2, APACHE_COMMONS[:lang], APACHE_COMMONS[:httpclient], INTALIO_STATS, JSON_NAGGIT, JSP_API, LOG4J, SERVLET_API, SLF4J, SPRING[:core], SPRING[:webmvc]
+  libs = AXIS2, APACHE_COMMONS[:lang], APACHE_COMMONS[:httpclient], INTALIO_STATS, JSON_NAGGIT, JSP_API, LOG4J, SERVLET_API, SLF4J, SPRING[:core], SPRING[:webmvc], DEPLOY_REGISTRY
   compile.from('src').with libs
   package(:jar)
 

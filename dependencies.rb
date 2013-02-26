@@ -121,3 +121,4 @@ APACHE_JPA = [
 ]
 
 OPENSSO_CLIENT_SDK = "com.sun:openssoclientsdk:jar:3.0"
+DEPLOY_REGISTRY  = "org.intalio.deploy:deploy-registry:jar:1.0.33"
