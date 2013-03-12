@@ -23,4 +23,3 @@ define "bpms-common" do
   package(:jar)
 
 end
-
