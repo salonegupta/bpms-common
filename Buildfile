@@ -6,9 +6,7 @@
 #  and conditions stipulated in the agreement/contract under which the
 #  program(s) have been supplied.
 
-require "repositories.rb"
 require "install.rb"
-require "build/common.rb"
 
 # Keep this structure to allow the build system to update version numbers.
 VERSION_NUMBER = "1.1.0.004-SNAPSHOT"
@@ -25,6 +23,3 @@ define "bpms-common" do
   package(:jar)
 
 end
-
-#delete the build folder
-rm_rf "build"
