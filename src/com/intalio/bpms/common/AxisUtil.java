@@ -18,13 +18,18 @@ public class AxisUtil {
 	public ServiceClient getServiceClient() throws AxisFault {
 		HttpClient httpClient = new HttpClient(MultiThreadedHttpConnectionManagerFactory.getInstance());
 		ServiceClient sc = new ServiceClient(null, null);
-		/*
-		 * DONT DO THIS
-		 * sc.getOptions().setProperty(HTTPConstants.CACHED_HTTP_CLIENT
-		 * ,httpClient);
-		 */
 		sc.setOptions(getDefaultOptions());
-		sc.getServiceContext().getConfigurationContext().setProperty(HTTPConstants.CACHED_HTTP_CLIENT, httpClient);
+
+        /*
+         * Fix for PXEI-917: Earlier we were setting httpclient in axis2's
+         * configContext due to issue of cleanup of idle http thread. Now as
+         * com.intalio.bpms.common.MultiThreadedHttpConnectionManagerFactory.
+         * idleConnectionTimeoutThread is taking care of that we don't need to
+         * set httpClient in configContext of axis2 as it is causing PXEI-917 by
+         * overriding the httpclient params.
+         */
+        sc.getOptions().setProperty(HTTPConstants.CACHED_HTTP_CLIENT,
+                httpClient);
 		return sc;
 	}
 
