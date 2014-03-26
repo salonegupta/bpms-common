@@ -9,7 +9,7 @@
 require "install.rb"
 
 # Keep this structure to allow the build system to update version numbers.
-VERSION_NUMBER = "1.1.0.005-SNAPSHOT"
+VERSION_NUMBER = "1.1.0.005"
 
 define "bpms-common" do
   puts "Defining #{VERSION_NUMBER}"
