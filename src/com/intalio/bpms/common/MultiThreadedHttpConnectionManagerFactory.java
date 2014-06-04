@@ -25,7 +25,7 @@ public class MultiThreadedHttpConnectionManagerFactory {
 	public static MultiThreadedHttpConnectionManager getInstance() {
         long idletimeoutinterval = Long.parseLong(HttpConfigProperties.getProperty(HttpConfigProperties.IDLE_CONNECTION_CHECK_INTERVAL, "30000"));
         long idleconnectionTimeOut = Long.parseLong(HttpConfigProperties.getProperty(HttpConfigProperties.IDLE_CONNECTION_TIMEOUT, "30000"));
-        int maxConnectionPerHost = Integer.parseInt(HttpConfigProperties.getProperty(HttpConfigProperties.MAX_HOST_CONNECTIONS, "5"));
+        int maxConnectionPerHost = Integer.parseInt(HttpConfigProperties.getProperty(HttpConfigProperties.MAX_HOST_CONNECTIONS, "20"));
         int maxTotalConnections = Integer.parseInt(HttpConfigProperties.getProperty(HttpConfigProperties.MAX_TOTAL_CONNECTIONS, "400"));
         int socketTimout = Integer.parseInt(HttpConfigProperties.getProperty(HttpConfigProperties.SOCKET_TIMEOUT, "600000"));
 
