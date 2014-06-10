@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<urlrewrite>
+
+    <rule match-type="regex">
+       <from>(/gi/.*)$</from>
+       <to context="intalio" qsappend="true" type="forward">$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>(/ode/.*)$</from>
+       <to context="intalio" qsappend="true" type="forward">$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/ode$</from>
+       <to type="redirect">/intalio/axis2-web/index.jsp</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/bam$</from>
+       <to type="redirect">/intalio/reports.htm</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/ui-fw/script/empty.jsp$</from>
+       <to type="redirect">/intalio/workflow/script/empty.jsp</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/ui-fw$</from>
+       <to type="redirect">/intalio/index.htm</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/ui-fw/tasks.htm(.*)$</from>
+       <to type="redirect">/intalio/index.htm</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/axis2$</from>
+       <to type="redirect">/intalio/axis2-web/index.jsp</to>
+    </rule>
+
+	<rule match-type="regex">
+        <from>^/axis2/services/DeploymentService(.*)$</from>
+        <to context="intalio" qsappend="true" type="forward">/ode/processes/DeployService$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/axis2/services/(.*)$</from>
+       <to context="intalio" qsappend="true" type="forward">/ode/processes/$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^(/collaboration/.*)$</from>
+       <to context="intalio" qsappend="true" type="forward">$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^(/errors/.*)$</from>
+       <to qsappend="true" type="redirect">/intalio/errors$1</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/bre$</from>
+       <to type="redirect">/intalio/axis2-web/index.jsp</to>
+    </rule>
+
+    <rule match-type="regex">
+       <from>^/bre/services/(.*)$</from>
+       <to context="intalio" qsappend="true" type="forward">/ode/processes/$1</to>
+    </rule>
+
+</urlrewrite>
