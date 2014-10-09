@@ -102,7 +102,7 @@ public class RuleParser {
         String type = toElement.getAttribute(RuleXPaths.TYPE_XPATH.getXpath());
 
         return new Rule(matchType, from, to, context,
-                Boolean.getBoolean(qsappend), type);
+                Boolean.parseBoolean(qsappend), type);
     }
 
     static enum RuleXPaths {
