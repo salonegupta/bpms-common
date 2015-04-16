@@ -51,11 +51,11 @@ public class RuleParser {
             Document doc = dBuilder.parse(stream);
             doc.getDocumentElement().normalize();
 
-            XPath xPath = XPathFactory.newInstance().newXPath();
+            NodeList nodes = doc.getChildNodes();
+            Element rootElement = (Element) nodes.item(0);
 
-            NodeList ruleNodeList = (NodeList) xPath.evaluate(
-                    RuleXPaths.RULE_XPATH.getXpath(), doc,
-                    XPathConstants.NODESET);
+            NodeList ruleNodeList = rootElement
+                    .getElementsByTagName(RuleXPaths.RULE_XPATH.getXpath());
 
             for (int i = 0; i < ruleNodeList.getLength(); i++) {
                 Element ruleElement = (Element) ruleNodeList.item(i);
@@ -106,7 +106,7 @@ public class RuleParser {
     }
 
     static enum RuleXPaths {
-        RULE_XPATH("//rule"), FROM_XPATH("from"), TO_XPATH("to"), MATCH_TYPE_XPATH(
+        RULE_XPATH("rule"), FROM_XPATH("from"), TO_XPATH("to"), MATCH_TYPE_XPATH(
                 "match-type"), CONTEXT_XPATH("context"), QSAPPEND("qsappend"), TYPE_XPATH(
                 "type");
 
