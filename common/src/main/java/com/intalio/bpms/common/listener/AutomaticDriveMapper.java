@@ -130,15 +130,7 @@ public class AutomaticDriveMapper implements ServletContextListener {
                         logger.info("Configured " + DEPLOY_DIRECTORY + " path "
                                 + deployDirPath + " exists.");
                     }
-                } else {
-                    logger.error(MAP_DRIVE_COMMAND
-                            + " property is not configured in "
-                            + ODE_PROPERTIES_FILE + " file");
                 }
-            } else {
-                logger.error(DEPLOY_DIRECTORY
-                        + " property is not configured in "
-                        + ODE_PROPERTIES_FILE + " file");
             }
         }
     }
