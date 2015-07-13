@@ -48,6 +48,8 @@ public class AxisUtil {
          * overriding the httpclient params.
          */
         options.setProperty(HTTPConstants.CACHED_HTTP_CLIENT, httpClient);
+        options.setTimeOutInMilliSeconds(httpClient.getHttpConnectionManager()
+                .getParams().getSoTimeout());
         if (isLocalCall) {
             TransportOutDescription tOut = serviceClient.getAxisConfiguration()
                     .getTransportOut(Constants.TRANSPORT_LOCAL);
