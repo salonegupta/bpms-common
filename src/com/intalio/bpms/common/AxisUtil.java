@@ -34,6 +34,9 @@ public class AxisUtil {
          */
         sc.getOptions().setProperty(HTTPConstants.CACHED_HTTP_CLIENT,
                 httpClient);
+        sc.getOptions().setTimeOutInMilliSeconds(
+                httpClient.getHttpConnectionManager().getParams()
+                        .getSoTimeout());
         return sc;
     }
 
