@@ -20,7 +20,9 @@ define "bpms" do
   compile.options.target = "1.5"
 
   define "common" do
-    libs = AXIS2.values, APACHE_COMMONS[:lang], APACHE_COMMONS[:httpclient], INTALIO_STATS,JSON_NAGGIT,JSP_API, LOG4J, SERVLET_API, SLF4J[:api], SLF4J[:log4j12], SLF4J[:jcl104overslf4j], SPRING[:core],SPRING[:webmvc], TOMCAT_CATALINA
+    libs = AXIS2.values, APACHE_COMMONS[:lang], APACHE_COMMONS[:httpclient], INTALIO_STATS,JSON_NAGGIT,JSP_API, LOG4J,
+    SERVLET_API, SLF4J[:api], SLF4J[:log4j12], SLF4J[:jcl104overslf4j], SPRING[:core],SPRING[:webmvc], TOMCAT_CATALINA,
+    VELOCITY
 
     compile.with libs
     package(:jar)
